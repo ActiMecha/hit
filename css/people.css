@@ -14,7 +14,7 @@ body {
 }
 
 .people .group-photo {
-    width: 55%; /* 可调节：课题组大图宽度，可以改成 60%, 70%, 90% 等 */
+    width: 70%; /* 可调节：课题组大图宽度，可以改成 60%, 70%, 90% 等 */
     max-width: 1200px; /* 可调节：最大宽度 */
     margin: 0 auto 2rem auto;
 }
