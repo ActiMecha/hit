@@ -40,6 +40,18 @@
 .news .item {
     display: flex;
     align-items: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    border-left: 4px solid #2c5aa0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.news .item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
 }
 
 .news .item > .text {
