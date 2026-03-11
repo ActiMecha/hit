@@ -23,6 +23,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: hidden;
     /* 添加过渡效果，使背景图片加载更平滑 */
     transition: background-image 0.3s ease-in-out;
