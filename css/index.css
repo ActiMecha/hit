@@ -29,10 +29,13 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 120%;
+    height: 120%;
     object-fit: cover;
+    object-position: top left;
     z-index: -2;
+    /* 裁剪掉右下角水印区域 */
+    clip-path: inset(0 15% 10% 0);
 }
 
 /* 保持半透明遮罩效果 */
@@ -53,7 +56,7 @@ body {
     justify-content: space-between;
     max-width: 1200px;
     height: 60vh;
-    margin-top: 25vh;
+    margin: 25vh auto 0;
     padding: 0 1rem;
     position: relative;
     z-index: 1;
