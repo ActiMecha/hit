@@ -182,11 +182,10 @@
                 <div class="content">
                     <img src="images/stiffness.png" alt="" loading="lazy">
                     <div class="info">
-                        <h2 style="color: black; cursor: pointer;" onclick="toggleAbstract('abstract5')">
+                        <h2 style="color: black;">
                             <span style="color: black; font-weight: normal;">Strain stiffening retards growth instability in residually stressed biological tissues,</span>
                             <strong style="color: black; font-weight: 700;">Yafei Wang</strong><span style="color: black; font-weight: normal;">, Yangkun Du, Fan Xu,</span>
                             <strong style="color: black; font-weight: 700;">Journal of the Mechanics and Physics of Solids</strong><span style="color: black; font-weight: normal;">, 2023, 178, 105360.</span>
-                            <span class="toggle-icon" id="icon5">▼</span>
                         </h2>
                         <p id="abstract5" class="abstract-content" style="color: gray;">Abstract: Soft biological tissues often exhibit notable strain stiffening under increasing stretch, and this can have significant effects on tissue growth and morphological development, such as causing symmetry breaking in growing airways and leading to mucosal folding and airway hyperresponsiveness. To investigate the role of strain stiffening and the multifactorial control in growth and remodeling, we consider a growing tubular structure with strain-stiffening effects caused by increased and tightened collagen. In addition, we employ the nonlinear hyperelastic Gent model and initial stress symmetry theory to include the coupling effects of differential growth and initial residual stress. Results show that for strain stiffening that takes place at higher strain, the maximum critical growth ratio matches that obtained using neo-Hookean model calculations. Meanwhile, for biological tissues that exhibit strain stiffening under moderate strain conditions, the strain-stiffening effect delays significantly the onset of growth instability. When strain stiffening takes place at very low strains, stiff biological tissues can prevent growth instability, resulting in a smooth hyperelastic cylindrical tubular structure, and the epithelial tissue remains stable at all growth stages without forming any unstable morphology. Our results suggest that strain stiffening can induce retardation instability during biological growth and remodeling, but airway remodeling can incorporate this effect by increasing wall stiffness and reducing obstruction. This highlights the importance of considering the impact of strain stiffening on biological growth and remodeling, which can inform the development of effective clinical interventions for chronic inflammatory airway diseases.</p>
                     </div>
@@ -354,25 +353,6 @@
                 }, 3000);
             }
         });
-
-        // 展开/收起摘要功能
-        function toggleAbstract(abstractId) {
-            const abstract = document.getElementById(abstractId);
-            const iconId = abstractId.replace('abstract', 'icon');
-            const icon = document.getElementById(iconId);
-
-            if (abstract.classList.contains('hide')) {
-                // 展开
-                abstract.classList.remove('hide');
-                icon.textContent = '▼';
-                icon.classList.remove('rotated');
-            } else {
-                // 收起
-                abstract.classList.add('hide');
-                icon.textContent = '▲';
-                icon.classList.add('rotated');
-            }
-        }
     </script>
 </body>
 
