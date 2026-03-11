@@ -432,6 +432,18 @@ body {
     transform: rotate(180deg);
 }
 
+/* 研究项目滑入动画 */
+.research-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-out;
+}
+
+.research-item.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* 研究项目标题悬停效果 */
 .research-item h2:hover {
     color: #555 !important;
