@@ -407,6 +407,36 @@ body {
     margin: 0;
 }
 
+/* 摘要展开/收起动画效果 */
+.abstract-content {
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 0.5rem;
+}
+
+.abstract-content.hide {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+}
+
+.toggle-icon {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.toggle-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* 研究项目标题悬停效果 */
+.research-item h2:hover {
+    color: #555 !important;
+}
+
 @media (max-width: 768px) {
     .quote {
         padding: 3rem 0;  /* 移动端减小间距 */
