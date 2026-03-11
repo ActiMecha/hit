@@ -16,12 +16,16 @@ body {
     height: 100vh;
     text-align: center;
     color: #fff;
+    /* 先显示纯色背景，避免白屏 */
+    background-color: #2c3e50;
     /* 保留原背景图片设置，方便切换 */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/banner.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    /* 添加过渡效果，使背景图片加载更平滑 */
+    transition: background-image 0.3s ease-in-out;
 }
 
 /* 视频背景样式 */
