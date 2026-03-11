@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- 预加载关键背景图片 -->
+    <link rel="preload" as="image" href="images/banner.png">
+
     <!-- Favicon and icons -->
     <!-- <link rel="icon" type="image/png" sizes="150x150" href="images/mstile-150x150.png?v=20201130">
     <meta name="msapplication-TileImage" content="images/mstile-150x150.png?v=20201130">
@@ -307,19 +311,39 @@
 
     <script src="js/script.js"></script>
     <script>
-        // 等待文字动画完成后播放背景视频
+        // 预加载背景图片并优化显示
         document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('bannerVideo');
+            const banner = document.querySelector('.banner');
+            const img = new Image();
 
-            // 等待3秒（文字动画完成后）再开始播放视频
-            setTimeout(function() {
-                video.play().then(function() {
-                    // 视频开始播放后，淡入显示
-                    video.style.opacity = '1';
-                }).catch(function(error) {
-                    console.log('视频播放失败:', error);
-                });
-            }, 3000);
+            // 预加载背景图片
+            img.onload = function() {
+                // 图片加载完成后，确保背景图片显示
+                banner.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/banner.png')";
+            };
+
+            img.onerror = function() {
+                console.log('背景图片加载失败，使用备用背景');
+                // 如果主图片加载失败，可以尝试加载备用图片
+                banner.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/banner.jpg')";
+            };
+
+            // 开始加载图片
+            img.src = 'images/banner.png';
+
+            // 视频相关代码（如果需要的话）
+            const video = document.getElementById('bannerVideo');
+            if (video) {
+                // 等待3秒（文字动画完成后）再开始播放视频
+                setTimeout(function() {
+                    video.play().then(function() {
+                        // 视频开始播放后，淡入显示
+                        video.style.opacity = '1';
+                    }).catch(function(error) {
+                        console.log('视频播放失败:', error);
+                    });
+                }, 3000);
+            }
         });
     </script>
 </body>
