@@ -59,11 +59,6 @@
     </nav>
 
     <section class="banner">
-        <!-- Video background -->
-        <video class="banner-video" autoplay muted loop playsinline preload="auto" controls>
-            <source src="video/1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
         <div class="content">
             <div class="title">
                 <h1 class="animate__animated animate__fadeInDown animate__fast">Machine Pattern Discovery:</h1>
@@ -311,6 +306,22 @@
 
 
     <script src="js/script.js"></script>
+    <script>
+        // 等待文字动画完成后播放背景视频
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('bannerVideo');
+
+            // 等待3秒（文字动画完成后）再开始播放视频
+            setTimeout(function() {
+                video.play().then(function() {
+                    // 视频开始播放后，淡入显示
+                    video.style.opacity = '1';
+                }).catch(function(error) {
+                    console.log('视频播放失败:', error);
+                });
+            }, 3000);
+        });
+    </script>
 </body>
 
 </html>
