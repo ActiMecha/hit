@@ -323,13 +323,13 @@
             // 预加载背景图片
             img.onload = function() {
                 // 图片加载完成后，确保背景图片显示
-                banner.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/banner.png')";
+                banner.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/banner.png')";
             };
 
             img.onerror = function() {
                 console.log('背景图片加载失败，使用备用背景');
                 // 如果主图片加载失败，可以尝试加载备用图片
-                banner.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/banner.jpg')";
+                banner.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/banner.jpg')";
             };
 
             // 开始加载图片
