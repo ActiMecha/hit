@@ -353,6 +353,34 @@
                 }, 3000);
             }
         });
+
+        // 研究项目滑入动画
+        function observeResearchItems() {
+            const researchItems = document.querySelectorAll('.research-item');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // 添加延迟，让文章依次出现
+                        setTimeout(() => {
+                            entry.target.classList.add('slide-in');
+                        }, index * 200); // 每个文章间隔200ms
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            researchItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // 页面加载完成后启动动画观察器
+        document.addEventListener('DOMContentLoaded', function() {
+            observeResearchItems();
+        });
     </script>
 </body>
 
