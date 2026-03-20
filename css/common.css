@@ -80,6 +80,7 @@ body {
     color: #000;
     padding-top: 20px;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 a {
