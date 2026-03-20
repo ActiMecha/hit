@@ -1,0 +1,116 @@
+<!-- Person 2: Zhi Cheng -->
+        <div class="wrapper person-section">
+            <div class="content">
+                <div class="left">
+                    <div class="image">
+                        <img src="images/zhangyao.png" alt="Zhi Cheng">
+                    </div>
+                </div>
+
+                <div class="right">
+                    <h2>Yao Zhang (张尧)</h2>
+                    <div class="description">
+                    <p>Graduate Student <br>Education: <br>PhD in Engineering Mechanics, School of Aerospace, Harbin Institute of Technology, 2023 - Present <br>BS in Mechanics, School of Aerospace, Harbin Institute of Technology, 2019 - 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Person 3: Jimin Gu -->
+        <div class="wrapper person-section">
+            <div class="content">
+                <div class="left">
+                    <div class="image">
+                        <img src="images/chengcheng.png" alt="Jimin Gu">
+                    </div>
+                </div>
+
+                <div class="right">
+                    <h2>Chengxuan Zhai (翟橙轩)</h2>
+                    <div class="description">
+                        <p><strong></strong></p>
+                        <p><strong></strong></p>
+                        <p>Undergraduate student <br>Education: <br>BS in Composite Materials and Engineering, School of Aerospace, Harbin Institute of Technology, 2022 - Present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- Person 4: Chang Wang -->
+        <div class="wrapper person-section">
+            <div class="content">
+                <div class="left">
+                    <div class="image">
+                        <img src="images/wangchang.png" alt="Jimin Gu">
+                    </div>
+                </div>
+
+                <div class="right">
+                    <h2>Chang Wang (王昌)</h2>
+                    <div class="description">
+                        <p>Graduate Student <br>Education: <br>MS in Mechanics, Department of Mechanical and Energy Engineering, Southern University of Science and Technology, 2024 - Present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Person 5:  -->
+        <div class="wrapper person-section">
+            <div class="content">
+                <div class="left">
+                    <div class="image">
+                        <img src="images/liangjie.png" alt="Jimin Gu">
+                    </div>
+                </div>
+
+                <div class="right">
+                    <h2>Liangjie Shan (单良杰)</h2>
+                    <div class="description">
+                        <p>Graduate Student <br>Education: <br>PhD in Materials and Polymer Science, School of Materials Science, Southern University of Science and Technology, 2024 - Present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                <!-- Person 6:  -->
+        <div class="wrapper person-section">
+            <div class="content">
+                <div class="left">
+                    <div class="image">
+                        <img src="images/wfc.png" alt="Jimin Gu">
+                    </div>
+                </div>
+
+                <div class="right">
+                    <h2>Fucheng Wang (王福成)</h2>
+                    <div class="description">
+                        <p>Graduate Student <br>Education: <br>PhD in Biomedical Engineering, School of Biomedical Engineering, Southern University of Science and Technology/South China University of Technology, 2024 - Present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper person-section">
+            <div class="content">
+                <div class="left">
+                    <div class="image">
+                        <img src="images/ylf.png" alt="Jimin Gu">
+                    </div>
+                </div>
+
+                <div class="right">
+                    <h2>Lingfeng Yuan (袁羚峰)</h2>
+                    <div class="description">
+                        <p>Graduate Student <br>Education: <br>PHD in Materials and Chemical Engineering, School of Biomedical Engineering, Southern University of Science and Technology/Nanjing University of Technology, 2023 - Present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
