@@ -347,12 +347,10 @@
             const researchItems = document.querySelectorAll('.research-item');
 
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        // 添加延迟，让文章依次出现
-                        setTimeout(() => {
-                            entry.target.classList.add('slide-in');
-                        }, index * 200); // 每个文章间隔200ms
+                        // 所有文章同时出现，无延迟
+                        entry.target.classList.add('slide-in');
                     }
                 });
             }, {
