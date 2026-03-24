@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(magick images/fengyinghui-am.png -quality 85 -resize 1200x1200)",
-      "Bash(pip install Pillow)"
+      "Bash(pip install Pillow)",
+      "Bash(where python:*)"
     ]
   }
 }
