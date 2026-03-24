@@ -345,12 +345,20 @@
         // 研究项目滑入动画
         function observeResearchItems() {
             const researchItems = document.querySelectorAll('.research-item');
+            let hasTriggered = false;
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        // 所有文章同时出现，无延迟
-                        entry.target.classList.add('slide-in');
+                    if (entry.isIntersecting && !hasTriggered) {
+                        // 当第一个研究项目进入视口时，让所有研究项目同时出现
+                        hasTriggered = true;
+                        researchItems.forEach(item => {
+                            item.classList.add('slide-in');
+                        });
+                        // 停止观察所有元素
+                        researchItems.forEach(item => {
+                            observer.unobserve(item);
+                        });
                     }
                 });
             }, {
