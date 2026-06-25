@@ -12,7 +12,7 @@
 
     <!-- 预加载首屏背景和最新研究图片 -->
     <link rel="preload" as="image" href="images/unnamed.jpg">
-    <link rel="preload" as="image" href="images/zhangyao.fullres-20260623.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="images/zhangyao.fullres-20260623.webp" type="image/webp" fetchpriority="high">
 
     <!-- Favicon and icons -->
     <!-- <link rel="icon" type="image/png" sizes="150x150" href="images/mstile-150x150.png?v=20201130">
@@ -95,7 +95,10 @@
 
             <div class="item research-item">
                 <div class="content">
-                    <img src="images/zhangyao.fullres-20260623.jpg" alt="Nonreciprocal transition waves in active lattices" fetchpriority="high" decoding="async">
+                    <picture>
+                        <source srcset="images/zhangyao.fullres-20260623.webp" type="image/webp">
+                        <img src="images/zhangyao.fullres-20260623.jpg" alt="Nonreciprocal transition waves in active lattices" fetchpriority="high" decoding="async">
+                    </picture>
                     <div class="info">
                         <h2 style="color: black;">
                             <span style="color: black; font-weight: normal;">Nonreciprocal transition waves in active lattices, Yao Zhang, Chengxuan Zhai, Zhanfeng Li, Jiahao Li, Guangjin Mou, Lizichen Chen, Yangkun Du, Michel Destrade, Changguo Wang, </span>
@@ -306,9 +309,7 @@
                     <div class="footer-block">
                         <h4 class="footer-title">Visitors</h4>
                         <div class="footer-text">
-                            <div id="clustrmaps-widget" style="width:40%">
-                                <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=HftoC1KfmilT8yrHY-VLwVX_Vy9frtJaS8-3jaZu5gI"></script>
-                            </div>
+                            <div id="clustrmaps-widget" style="width:40%"></div>
                         </div>
                     </div>
                 </div>
@@ -392,6 +393,19 @@
         // 页面加载完成后启动动画观察器
         document.addEventListener('DOMContentLoaded', function() {
             observeResearchItems();
+        });
+
+        // 延迟加载访客地图，避免第三方脚本拖慢首页完成加载
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const widget = document.getElementById('clustrmaps-widget');
+                if (!widget) return;
+                const script = document.createElement('script');
+                script.async = true;
+                script.id = 'clstr_globe';
+                script.src = 'https://clustrmaps.com/globe.js?d=HftoC1KfmilT8yrHY-VLwVX_Vy9frtJaS8-3jaZu5gI';
+                widget.appendChild(script);
+            }, 1500);
         });
     </script>
 </body>
