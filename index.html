@@ -395,18 +395,6 @@
             observeResearchItems();
         });
 
-        // 延迟加载访客地图，避免第三方脚本拖慢首页完成加载
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const widget = document.getElementById('clustrmaps-widget');
-                if (!widget) return;
-                const script = document.createElement('script');
-                script.async = true;
-                script.id = 'clstr_globe';
-                script.src = 'https://clustrmaps.com/globe.js?d=HftoC1KfmilT8yrHY-VLwVX_Vy9frtJaS8-3jaZu5gI';
-                widget.appendChild(script);
-            }, 1500);
-        });
     </script>
 </body>
 
