@@ -2,6 +2,69 @@ body {
     padding-top: 0 ;
 }
 
+.visitor-widget {
+    width: 100%;
+    max-width: 300px;
+}
+
+.visitor-map-frame {
+    aspect-ratio: 3 / 2;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid #616a74;
+    border-radius: 6px;
+}
+
+.visitor-map {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.visitor-map[hidden],
+.visitor-map-status[hidden],
+.visitor-map-actions button[hidden] {
+    display: none;
+}
+
+.footer .visitor-map-status {
+    margin: 0;
+    padding: 1rem;
+    color: #c4c9ce;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.visitor-map-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.footer .visitor-map-actions a {
+    color: #c4c9ce;
+}
+
+.visitor-map-actions button {
+    padding: 0.25rem 0.65rem;
+    border: 1px solid #c4c9ce;
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.visitor-map-actions a:focus-visible,
+.visitor-map-actions button:focus-visible {
+    outline: 2px solid #69c0ff;
+    outline-offset: 3px;
+}
+
 .navbar {
     background-color: rgba(117, 125, 33, 0.6);
     z-index: 10;
