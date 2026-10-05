@@ -8,7 +8,8 @@ body {
 }
 
 .visitor-map-frame {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 80 / 41;
+    text-decoration: none;
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -59,6 +60,7 @@ body {
     cursor: pointer;
 }
 
+.visitor-map-frame:focus-visible,
 .visitor-map-actions a:focus-visible,
 .visitor-map-actions button:focus-visible {
     outline: 2px solid #69c0ff;

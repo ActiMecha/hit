@@ -1,4 +1,4 @@
-// Keep the existing ClustrMaps account, but load only its static image.
+// Load only the visitor counter's static image, without third-party scripts.
 // Start after the page has loaded; a slow provider cannot delay window.load.
 (function () {
     'use strict';
@@ -19,13 +19,17 @@
         retry.hidden = true;
 
         let finished = false;
-        const timeout = window.setTimeout(function () { finish(false); }, 8000);
+        const slowNotice = window.setTimeout(function () {
+            status.textContent = 'The visitor map is taking longer to load. Statistics are available below.';
+        }, 12000);
+        const timeout = window.setTimeout(function () { finish(false); }, 45000);
 
         function finish(success) {
             if (finished) return;
             finished = true;
             loading = false;
             window.clearTimeout(timeout);
+            window.clearTimeout(slowNotice);
             map.onload = null;
             map.onerror = null;
             map.hidden = !success;
@@ -37,7 +41,7 @@
             }
         }
 
-        map.onload = function () { finish(map.naturalWidth > 0); };
+        map.onload = function () { finish(map.naturalWidth > 1 && map.naturalHeight > 1); };
         map.onerror = function () { finish(false); };
         map.src = map.dataset.src;
     }
