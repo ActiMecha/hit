@@ -31,10 +31,10 @@ body {
 
 .footer .visitor-map-status {
     margin: 0;
-    padding: 1rem;
+    padding: 0.4rem 0 0;
     color: #c4c9ce;
-    text-align: center;
-    font-size: 0.9rem;
+    text-align: left;
+    font-size: 0.75rem;
 }
 
 .visitor-map-actions {

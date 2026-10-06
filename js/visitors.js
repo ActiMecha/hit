@@ -1,49 +1,64 @@
-// Load only the visitor counter's static image, without third-party scripts.
-// Start after the page has loaded; a slow provider cannot delay window.load.
+// Keep a dated, same-origin map visible even if the counter is slow or offline.
+// The official counter image is requested once, after the main page has loaded.
 (function () {
     'use strict';
 
-    const map = document.getElementById('visitor-map');
+    let map = document.getElementById('visitor-map');
     const status = document.getElementById('visitor-map-status');
     const retry = document.getElementById('visitor-map-retry');
     if (!map || !status || !retry) return;
 
+    const source = map.dataset.src;
     let loading = false;
 
     function loadMap() {
         if (loading) return;
         loading = true;
-        map.hidden = true;
-        status.hidden = false;
-        status.textContent = 'Loading visitor map…';
         retry.hidden = true;
 
+        // Reuse this exact element on success to avoid requesting/counting twice.
+        const liveMap = new Image();
+        liveMap.id = map.id;
+        liveMap.className = map.className;
+        liveMap.width = 400;
+        liveMap.height = 205;
+        liveMap.alt = 'World map showing visits to this website';
+        liveMap.decoding = 'async';
+        liveMap.fetchPriority = 'low';
+
         let finished = false;
-        const slowNotice = window.setTimeout(function () {
-            status.textContent = 'The visitor map is taking longer to load. Statistics are available below.';
-        }, 12000);
-        const timeout = window.setTimeout(function () { finish(false); }, 45000);
+        const timeout = window.setTimeout(function () { finish(false); }, 20000);
 
         function finish(success) {
             if (finished) return;
             finished = true;
             loading = false;
             window.clearTimeout(timeout);
-            window.clearTimeout(slowNotice);
-            map.onload = null;
-            map.onerror = null;
-            map.hidden = !success;
-            status.hidden = success;
+            liveMap.onload = null;
+            liveMap.onerror = null;
             retry.hidden = success;
-            if (!success) {
-                map.removeAttribute('src');
-                status.textContent = 'Visitor map is temporarily unavailable.';
+            if (success) {
+                map.replaceWith(liveMap);
+                map = liveMap;
+                status.textContent = 'Updated just now';
+            } else {
+                // Leave the snapshot and its date intact, without a loading box.
+                liveMap.removeAttribute('src');
             }
         }
 
-        map.onload = function () { finish(map.naturalWidth > 1 && map.naturalHeight > 1); };
-        map.onerror = function () { finish(false); };
-        map.src = map.dataset.src;
+        liveMap.onload = function () {
+            // The provider sometimes returns an invisible 1 × 1 placeholder.
+            if (liveMap.naturalWidth <= 1 || liveMap.naturalHeight <= 1) {
+                finish(false);
+            } else if (typeof liveMap.decode === 'function') {
+                liveMap.decode().then(function () { finish(true); }, function () { finish(false); });
+            } else {
+                finish(true);
+            }
+        };
+        liveMap.onerror = function () { finish(false); };
+        liveMap.src = source;
     }
 
     function scheduleMap() {
