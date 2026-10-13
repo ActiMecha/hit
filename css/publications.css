@@ -512,3 +512,72 @@
         font-size: 0.875rem;
     }
 }
+
+/* Scientific thumbnails retain their native aspect ratio and open at full size. */
+.publications .image {
+    flex: 0 0 230px;
+    width: 230px;
+    margin-right: 24px;
+}
+
+.publications .image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.publications .image a {
+    display: block;
+    border-radius: 3px;
+}
+
+.publications .image a:focus-visible {
+    outline: 2px solid #347db5;
+    outline-offset: 5px;
+}
+
+.publications .year-note,
+.publications .publication-date {
+    color: #636b73;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.publications .year-note {
+    margin-bottom: 2rem;
+}
+
+.publications .publication-date {
+    margin: -0.125rem 0 0.5rem;
+}
+
+.publications .content {
+    min-width: 0;
+}
+
+.publications .category {
+    scroll-margin-top: 108px;
+}
+
+@media (max-width: 768px) {
+    .publications .category {
+        scroll-margin-top: 68px;
+    }
+
+    .publications .item {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 0 0.75rem;
+        align-items: start;
+    }
+
+    .publications .image {
+        grid-column: 1 / -1;
+        width: min(100%, 360px);
+        margin: 0 auto 1rem;
+    }
+
+    .publications .index {
+        margin-right: 0;
+    }
+}
